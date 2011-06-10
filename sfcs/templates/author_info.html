@@ -1,0 +1,7 @@
+{% if author.image %}
+    <img src="{{ author.image.url }}" />
+{% endif %}
+<h3>{{ author.full_name }}</h3>
+<small>Class of {{ author.year }}</small>
+
+<p>{{ author.bio }}</p>

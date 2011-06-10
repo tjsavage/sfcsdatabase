@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block "left_column" %}
+<!-- Column 1 start -->
+    <div class="info_block featured_block">
+        <h2>Featured Papers</h2>
+        {% include 'paper_list.html' with papers=featured_papers %}
+    </div>
+    <div class="info_block recent_block">
+        <h2>Recently Posted</h2>
+        {% include 'paper_list.html' with papers=recent_papers %}
+    </div>
+        
+        
+
+        <!-- Column 1 end -->
+{% endblock %}
+
+{% block "right_column" %}
+<!-- Column 2 start -->
+    <div class="sidebar_block updates_block">
+        <h1>Recent Updates</h1>
+        <ul>
+            {% for update in recent_updates %}
+                <li>{{ update.date_added }} - <a href="/updates/{{ update.id }}">{{ update.headline }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="sidebar_block partners_block">
+        <h1>Partners</h1>
+        <ul>
+            {% for partner in recent_partners %}
+                <li>{{ partner.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

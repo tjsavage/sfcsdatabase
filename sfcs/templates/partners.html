@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block "left_column" %}
+<ul class="partner_list">
+{% for partner in partners %}
+    <li>{% include "partner_preview.html" with partner=partner %}</li>
+{% endfor %}
+</ul>
+{% endblock %}
+
+{% block "right_column" %}
+
+{% for update in partner_updates %}
+    {% include "update_preview.html" with update=update %}
+    <br />
+{% endfor %}
+{% endblock %}

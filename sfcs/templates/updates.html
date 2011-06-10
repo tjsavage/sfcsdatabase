@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block "left_column" %}
+    <h3>Recent Updates</h3>
+    {% include "update_list.html" with updates=updates %}
+    {% if page > 1 %}
+        <a style="float:left;" href="/updates/?page={{ previous_page }}"><< Previous</a>
+    {% endif %}
+    {% if next_page <= pages %}
+        <a style="float:right;" href="/updates/?page={{ next_page }}">Next >> </a>
+    {% endif %}
+{% endblock %}
+
+{% block "right_column" %}
+    <h3>Recent Comments</h3><br />
+    {% for comment in recent_comments %}
+        <b><a href="/database/papers/{{ comment.paper.id }}/">{{ comment.paper.title }}</a>:</b>
+        {% include "comment_small.html" with comment=comment %}
+        <br />
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,5 @@
+<ul class="update_list">
+{% for update in updates %}
+    <li>{% include "update_preview.html" with update=update %}</li>
+{% endfor %}
+</ul>

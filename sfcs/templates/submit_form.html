@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block "left_column" %}
+<form method="post" action="/database/papers/submit/">
+    {% csrf_token %}
+    <h2>Paper Information</h2>
+    {{ paper_form.as_p }}
+    <h2>Author Information</h2>
+    {{ author_form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
+{% endblock %}

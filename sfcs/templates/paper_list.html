@@ -1,0 +1,9 @@
+<div class="paper_list">
+<ul>
+{% for paper in papers %}
+    <li class="paper_preview">
+        {% include "paper_preview.html" with paper=paper %}
+    </li>
+{% endfor %}
+</ul>
+</div>

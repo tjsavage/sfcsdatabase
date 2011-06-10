@@ -1,0 +1,107 @@
+10
+
+dir
+15020
+http://code.djangoproject.com/svn/django/trunk/django
+http://code.djangoproject.com/svn
+
+
+
+2010-12-22T04:54:10.285260Z
+15020
+russellm
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+bcc190cf-cafb-0310-a4f2-bffc1f526a37
+
+http
+dir
+
+test
+dir
+
+conf
+dir
+
+db
+dir
+
+forms
+dir
+
+__init__.py
+file
+
+
+
+
+2010-12-22T06:01:05.000000Z
+f1f721d9e2db44592804374578f19040
+2010-11-11T07:15:30.123534Z
+14519
+ubernostrum
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+549
+
+core
+dir
+
+templatetags
+dir
+
+views
+dir
+
+shortcuts
+dir
+
+dispatch
+dir
+
+contrib
+dir
+
+utils
+dir
+
+bin
+dir
+
+template
+dir
+
+middleware
+dir
+

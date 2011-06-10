@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block "extra_scripts" %}
+    <script type="text/javascript">
+        var toggle_form = 0;
+        
+        function addComment() {
+            if(!toggle_form){
+                $('#comment_form').load("/database/papers/{{ paper.id }}/comment/", function () {
+                    $(this).slideDown("slow");   
+                });
+                $('#add_comment_button').html("Close");
+            } else {
+                $('#comment_form').slideUp("slow");
+                $('#add_comment_button').html("Add Comment");
+            }
+            toggle_form = 1-toggle_form;
+        }
+    </script>
+{% endblock %}
+
+{% block "left_column" %}
+    {% include "paper_preview_full.html" with paper=paper %}
+    {% if comments %}
+        <h2>Comments</h2>
+        <a id="add_comment_button" onclick="addComment()">Add Comment</a>
+        <div id="comment_form" style="display: none;"></div>
+        {% for comment in comments %}
+            {% include "comment.html" with comment=comment %}
+        {% endfor %}
+    {% endif %}
+   
+{% endblock %}
+
+{% block "right_column" %}
+    
+    <h2><a href="/database/papers/{{ paper.id }}/download/">Download</a></h2>
+   
+   
+    <h2>About the Author</h2>
+    {% include "author_info.html" with author=paper.author %}
+    
+    
+    <h2>About the Paper</h2>
+    <ul class="paper_about">
+        <li>Date added: {{ paper.date_added }}</li>
+        <li>Date updated: {{ paper.date_updated }}</li>
+        <li>Downloads: {{ paper.downloads }}</li>
+    </ul>
+    
+{% endblock %}

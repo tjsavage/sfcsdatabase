@@ -1,0 +1,13 @@
+<div class="search_result">
+    {% include 'paper_list.html' with papers=papers %}
+    <script type='text/javascript'>
+        page = {{ page }};
+        pages = {{ pages }};
+    </script>
+    {% if page > 1 %}
+        <a style="float: left;" onclick="previousPage()"><< Previous Page </a>
+    {% endif %}
+    {% if page < pages %}
+        <a style="float:right;" onclick="nextPage()">Next Page >> </a>
+    {% endif %}
+</div>

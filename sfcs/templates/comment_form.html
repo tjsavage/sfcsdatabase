@@ -1,0 +1,6 @@
+{{ form.media }}
+<form action="/database/papers/{{ paper_id }}/comment/" method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="Submit" />
+</form>

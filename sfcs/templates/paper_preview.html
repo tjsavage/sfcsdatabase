@@ -1,0 +1,13 @@
+<div class="paper_preview">
+    <span class="title"><b><a href="/database/papers/{{ paper.id }}">{{ paper.title }}</a></b></span> by 
+    <span class="author"><a href="/database/authors/{{ paper.author.id }}">{{ paper.author.full_name }}</a></span>
+    {% if paper.topic %}
+        <br />
+        <span class="topic">{{ paper.topic }}</span>
+    {% endif %}
+    {% if paper.publication_date %}
+        <br />
+        <span class="publication_date">{{ paper.date_published }}</span>
+    {% endif %}
+    <span class="abstract">{{ paper.abstract }}</span>
+</div>

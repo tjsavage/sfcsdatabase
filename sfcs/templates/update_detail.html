@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block "left_column" %}
+    <h2>{{ update.headline }}</h2>
+    <span class="update_date">{{ update.date_added }}</span>
+    <br />
+    {% if update.author %}
+        <span class="update_author">Posted by {{ update.author }}</span>
+    {% endif %}
+    <p>{{ update.body }}</p>
+    <span class="update_partner">
+        {% if update.partner.image %}
+            <a href="{{ update.partner.url }}" ><img class="update_partner_image" src="{{ update.partner.image.url }}" /></a>
+        {% else %}
+            <a href="{{ update.partner.url }}" >{{ update.partner.name }}</a>
+        {% endif %}
+    </span>
+{% endblock %}
+
+{% block "right_column" %}
+    <h3>Recent Updates</h3>
+    {% include "update_list.html" with updates=recent_updates %}
+{% endblock %}

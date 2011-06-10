@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+	<title>SFCS Database</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<meta name="description" content="SFCS Database" />
+	<meta name="keywords" content="SFCS Database" />
+	<meta name="robots" content="index, follow" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/screen.css" media="screen" />
+</head>
+<body>
+
+<div id="header">
+	<h1>SFCS Database</h1>
+	<h2>Stanford University's database for environmental research papers.</h2>
+
+	<ul>
+		<li><a href="/">SFCS Home</a></li>
+		<li><a href="/database/papers/browse">Browse Papers</a></li>
+		<li><a href="/database/partners">Partners</a></li>
+		<li><a href="/database/papers/submit">Submit a Paper</a></li>
+		<li><a href="/updates">News and Updates</a></li>
+		<li><a href="/about">About Us</a></li>
+	</ul>
+
+</div>
+<div class="colmask rightmenu">
+	<div class="colleft">
+		<div class="col1">
+			{% block "left_column" %}
+			{% endblock %}
+		</div>
+		<div class="col2">
+			{% block "right_column" %}
+			{% endblock %}
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p>Stanford University ASSU</p>
+</div>
+
+</body>
+</html>

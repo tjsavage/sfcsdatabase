@@ -1,0 +1,14 @@
+<div class="update_preview">
+    <span class="update_headline"><h4>{{ update.date_added }}<br /><a href="/updates/{{ update.id }}/">{{ update.headline }}</a></h4></span>
+    {% if update.author %}
+        <span class="update_author">Posted by {{ update.author }}</span>
+    {% endif %}
+    <p>{{ update.short_body }}</p>
+    <span class="update_partner">
+        {% if update.partner.image %}
+            <a href="{{ update.partner.url }}" ><img class="update_partner_image" src="{{ update.partner.image.url }}" /></a>
+        {% else %}
+            <a href="{{ update.partner.url }}" >{{ update.partner.name }}</a>
+        {% endif %}
+    </span>
+</div>

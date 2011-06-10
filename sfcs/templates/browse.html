@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block "extra_scripts" %}
+<script type="text/javascript">
+function getSelectedTopicsString() {
+    var selected = "";
+    $('#topics input:checked').each(function() {
+        selected += $(this).attr('value')
+    })
+    return selected;
+}
+
+var page = 1;
+var pages = {{ pages }};
+
+function previousPage() {
+    page--;
+    loadSearchResult();
+}
+
+function nextPage() {
+    page++;
+    loadSearchResult();
+}
+
+function loadSearchResult() {
+    var search = $('#form_search').val();
+    var query = "search=" + search;
+    
+    var selected_topics = getSelectedTopicsString();
+    var selected_query = 'topic=' + selected_topics;
+    
+    $('#paper_results').load('/database/papers/search/?' + query + '&' + selected_query + '&page=' + page);
+}
+
+function newSearch() {
+    page = 1;
+    loadSearchResult();
+}
+
+function clearSearch() {
+    $('#paper_results').load('/database/papers/search/');
+    $('#all_topics').attr('checked', true);
+}
+
+</script>
+{% endblock %}
+
+{% block "left_column" %}
+<h2>Browse</h2>
+    <div id="paper_results">
+    {% include 'paper_list.html' with papers=papers %}
+    {% if page > 1 %}
+        <a style="float: left;" onclick="previousPage()"><< Previous Page </a>
+    {% endif %}
+    {% if page <= pages %}
+        <a style="float:right;" onclick="nextPage()">Next Page >> </a>
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block "right_column" %}
+<h2>Search Papers</h2>
+<br />
+<form method="get" action="javascript:newSearch()">
+    <input id="form_search" type="text" name="search" />
+    <h3>Topics</h3>
+    <div id="topics">
+        <input id="all_topics" type="radio" name="topic" value="" checked="yes"/> All<br />
+    {% for topic in topics %}
+        <input type="radio" name="topic" value="{{ topic.name }}"/> {{ topic.name }}<br />
+    {% endfor %}
+    </div>
+    <input type="submit" value="Search" />&nbsp<input type="button" onclick="clearSearch()" value="Clear Search" />
+</form>
+{% endblock %}
